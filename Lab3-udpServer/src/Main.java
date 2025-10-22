@@ -16,10 +16,10 @@ public class Main {
             System.out.println("oczekuje na połaćżenia ...");
             DatagramPacket recivePacket = new DatagramPacket(reciveData, reciveData.length);
             while (true){
-                reciveData = new byte[1024];
+                recivePacket.setData(new byte[1024]);
                 server.receive(recivePacket);
-
-                String message = new String(recivePacket.getData());
+                System.out.println(recivePacket.getData());
+                String message = new String(recivePacket.getData(), 0, recivePacket.getData().length);
                 System.out.println(" wiadomość od klienta " + message);
 
                 SocketAddress address = recivePacket.getSocketAddress();
