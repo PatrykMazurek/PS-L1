@@ -1,11 +1,21 @@
 package com.example.Rest_example.model;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Person")
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "first_name", length = 180)
     private String firstName;
+    @Column(name = "last_name", length = 180)
     private String lastName;
     private int age;
+    @Column(length = 50)
     private String city;
 
     // konstruktory

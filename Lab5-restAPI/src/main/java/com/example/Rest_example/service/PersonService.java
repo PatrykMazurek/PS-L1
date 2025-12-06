@@ -2,6 +2,7 @@ package com.example.Rest_example.service;
 
 
 import com.example.Rest_example.model.Person;
+import com.example.Rest_example.repository.IPersonRepository;
 import com.example.Rest_example.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,12 @@ public class PersonService {
     @Autowired
     PersonRepository repository;
 
+    @Autowired
+    IPersonRepository iRepository;
+
     public List<Person> getAllPerson(){
-        return repository.getAll();
+        return iRepository.findAll();
+//        return repository.getAll();
     }
 
     public Person getPerson(int id){
